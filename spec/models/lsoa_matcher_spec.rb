@@ -9,19 +9,19 @@ RSpec.describe LsoaMatcher, type: :model do
     context "not null" do
       it "name" do
         subject.name = nil
-        expect(subject.valid?).to be false
+        expect(subject).not_to be_valid
         expect(subject.errors[:name]).not_to be_empty
       end
       it "match_strings" do
         subject.match_strings = nil
-        expect(subject.valid?).to be false
+        expect(subject).not_to be_valid
         expect(subject.errors[:match_strings]).not_to be_empty
       end
     end
     context "not empty" do
       it "match_strings" do
         subject.match_strings = []
-        expect(subject.valid?).to be false
+        expect(subject).not_to be_valid
         expect(subject.errors[:match_strings]).not_to be_empty
       end
     end
