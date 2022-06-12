@@ -53,6 +53,10 @@ RSpec.describe LsoaMatcher, type: :model do
       it "matches anywhere in the string" do
         expect(subject.has_postcode("some TeSt")).to be true
       end
+      it "postcode not found" do
+        allow(PostcodeFetcher).to receive(:fetch).and_return(false)
+        expect(subject.has_postcode("some TeSt")).to be false
+      end
     end
     context "Two match string set" do
       before :each do

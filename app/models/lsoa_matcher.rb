@@ -24,6 +24,7 @@ class LsoaMatcher < ApplicationRecord
 
   def has_match(postcode)
     postcode_details = PostcodeFetcher.fetch(postcode)
+    return false unless postcode_details
     match_regexp.each do |re|
       return true if postcode_details.lsoa&.match?(re)
     end
