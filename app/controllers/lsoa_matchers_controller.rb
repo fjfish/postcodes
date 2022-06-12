@@ -23,6 +23,14 @@ class LsoaMatchersController < ApplicationController
   def create
     @lsoa_matcher = LsoaMatcher.new(lsoa_matcher_params)
 
+    # Inelegant hack to get JSON saving correctly
+    @lsoa_matcher.match_strings = JSON.parse(@lsoa_matcher.match_strings) if @lsoa_matcher.match_strings.present?
+    if @lsoa_matcher.extra_postcodes.present?
+      @lsoa_matcher.extra_postcodes = JSON.parse(@lsoa_matcher.extra_postcodes)
+    else
+      @lsoa_matcher.extra_postcodes = []
+    end
+
     respond_to do |format|
       if @lsoa_matcher.save
         format.html { redirect_to lsoa_matcher_url(@lsoa_matcher), notice: "Lsoa matcher was successfully created." }
