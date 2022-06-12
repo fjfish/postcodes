@@ -1,13 +1,13 @@
-require 'uri'
-require 'net/http'
-require 'json'
+require "uri"
+require "net/http"
+require "json"
 module PostcodeFetcher
   BASE_URL = "http://postcodes.io/postcodes/"
   class WrappedResponse
     attr_reader :base_hash
     def initialize(result_hash)
       @base_hash = result_hash
-      result_hash.keys.each do|name|
+      result_hash.keys.each do |name|
         define_singleton_method(name) do
           raise ArgumentError unless base_hash.has_key?(name)
           base_hash[name]
