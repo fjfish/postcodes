@@ -37,9 +37,10 @@ There are some exceptions to this
 
 ## Entities and services
 
-| Entity          | Notes                                            |
-|-----------------|--------------------------------------------------|
-| PostcodeFetcher | Get postcode JSON into an object or return false |
+| Entity          | Notes                                                      |
+|-----------------|------------------------------------------------------------|
+| PostcodeFetcher | Get postcode JSON into an object or return false           |
+| LsoaMatcher     | Set up LSOA match strings and additional one-off postcodes |
 
 ## Testing strategy
 
