@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Lsoa matchers</h1>
+
+<div id="lsoa_matchers">
+  <% @lsoa_matchers.each do |lsoa_matcher| %>
+    <%= render lsoa_matcher %>
+    <p>
+      <%= link_to "Show this lsoa matcher", lsoa_matcher %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New lsoa matcher", new_lsoa_matcher_path %>

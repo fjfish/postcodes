@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @lsoa_matcher %>
+
+<div>
+  <%= link_to "Edit this lsoa matcher", edit_lsoa_matcher_path(@lsoa_matcher) %> |
+  <%= link_to "Back to lsoa matchers", lsoa_matchers_path %>
+
+  <%= button_to "Destroy this lsoa matcher", @lsoa_matcher, method: :delete %>
+</div>

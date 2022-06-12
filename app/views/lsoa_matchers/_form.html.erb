@@ -1,0 +1,32 @@
+<%= form_with(model: lsoa_matcher) do |form| %>
+  <% if lsoa_matcher.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(lsoa_matcher.errors.count, "error") %> prohibited this lsoa_matcher from being saved:</h2>
+
+      <ul>
+        <% lsoa_matcher.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :match_strings, style: "display: block" %>
+    <%= form.text_field :match_strings %>
+  </div>
+
+  <div>
+    <%= form.label :extra_postcodes, style: "display: block" %>
+    <%= form.text_field :extra_postcodes %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
