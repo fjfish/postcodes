@@ -4,6 +4,11 @@ There is a gem for Postcodes IO, but the test implies you need to write somethin
 
 This app was written using Ruby 3.1.1 and Rails 7. Storage is using SqlLite, mainly so we don't have Docker or Postgres install hell.
 
+## Startup and initialisation
+
+1. This will run as a Rails app
+2. There will be some seed data that can optionally be run in
+
 ## Tentative design
 
 The requirement is to identify whether a postcode falls within a specific LSOA, which is an attribute of the postcode entry.
@@ -29,6 +34,12 @@ There are some exceptions to this
 * First we need to just get information from the postcode.io server and prove connectivity
 * Create the CRUD for the LSOA and its postcodes
 * Drill down into the logic for LSOA membership
+
+## Entities and services
+
+| Entity          | Notes                                            |
+|-----------------|--------------------------------------------------|
+| PostcodeFetcher | Get postcode JSON into an object or return false |
 
 ## Testing strategy
 
