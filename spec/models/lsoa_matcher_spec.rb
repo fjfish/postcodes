@@ -60,7 +60,7 @@ RSpec.describe LsoaMatcher, type: :model do
     end
     context "Two match string set" do
       before :each do
-        subject.match_strings << "test2"
+        subject.match_strings = ["test1", "test2"]
         postcode = double("postcode", lsoa: "test2")
         allow(PostcodeFetcher).to receive(:fetch).and_return(postcode)
       end
@@ -77,6 +77,11 @@ RSpec.describe LsoaMatcher, type: :model do
       end
       it "matches anywhere in the string" do
         expect(subject.has_postcode("some TeSt2")).to be true
+      end
+      it "still matches first item" do
+        postcode = double("postcode", lsoa: "test1")
+        allow(PostcodeFetcher).to receive(:fetch).and_return(postcode)
+        expect(subject.has_postcode("test1")).to be true
       end
     end
   end

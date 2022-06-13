@@ -2,7 +2,7 @@
 
 <%= form_tag postcode_query_index_path, method: :get do %>
   <%= prompt_text "Select LSOA" %>
-  <%= select_tag :lsoa_matcher_id, options_from_collection_for_select(LsoaMatcher.all, "id", "name") %>
+  <%= select_tag :lsoa_matcher_id, options_from_collection_for_select(LsoaMatcher.all, "id", "name", @lsoa_matcher.id.to_s) %>
   <%= prompt_text "Select postcode" %>
   <%= text_field_tag :postcode, @postcode %>
   <%= button_tag "Run query"  %>
@@ -11,7 +11,7 @@
 <% if @postcode %>
 
   <% if @found %>
-    <div>Postcode found</div>
+    <div>Postcode found for <%= @lsoa_matcher.name %> </div>
   <% else %>
     <div>Does not match: <%= @lsoa_matcher.name %> </div>
   <% end  %>
