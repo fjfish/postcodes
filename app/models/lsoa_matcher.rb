@@ -35,7 +35,7 @@ class LsoaMatcher < ApplicationRecord
     @match_regexp ||=
       begin
         to_re = ->(string) { Regexp.new(string, Regexp::IGNORECASE) }
-        match_strings.map(&to_re)
+        match_strings.map(&method(:normal)).map(&to_re)
       end
   end
 end
