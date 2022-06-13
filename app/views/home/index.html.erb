@@ -1,0 +1,13 @@
+<h1>Home</h1>
+
+
+<table>
+  <% if LsoaMatcher.count > 0 %>
+    <tr>
+      <td><%= link_to "Postcode query", lsoa_matchers_path %></td>
+    </tr>
+  <% end %>
+  <tr>
+    <td><%= link_to "LSOA Matchers", lsoa_matchers_path %></td>
+  </tr>
+</table>
